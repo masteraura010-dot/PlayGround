@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f1e8"><title>Little Scissors — A Cozy Hair Salon</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+:root{--ink:#302d37;--muted:#85818b;--cream:#f6f1e8;--pink:#e99aa0;--rose:#d97782;--lilac:#a999cf;--green:#759b82;--line:#e9e2d9;--white:#fffdfa;--shadow:0 12px 38px #53474b13}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;min-height:100vh}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible{outline:3px solid #aa91d9;outline-offset:3px}.app{max-width:1440px;margin:auto;padding:20px 46px 32px}.topbar{height:56px;display:flex;align-items:center;justify-content:space-between;margin-bottom:23px}.brand{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:800;letter-spacing:-.7px}.brand-mark{display:grid;place-items:center;width:39px;height:39px;border-radius:14px;background:#edd0ce;font-size:22px}.brand small{display:block;color:#9a8d89;font-size:10px;font-weight:600;letter-spacing:1.55px;text-transform:uppercase;margin-top:2px}.top-right{display:flex;align-items:center;gap:16px}.day-pill,.tip-pill{border-radius:30px;background:#fffdfa;padding:10px 15px;font-size:12px;color:#77717b;font-weight:700}.day-pill b{color:#bd858a}.tip-pill{background:#eee9f6;color:#81739d}.hero{display:flex;align-items:end;justify-content:space-between;margin-bottom:20px}.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#b48688;font-weight:800;margin-bottom:6px}.hero h1{font-family:'Playfair Display',serif;font-size:32px;line-height:1.08;letter-spacing:-.6px;margin:0}.hero p{margin:7px 0 0;color:#87818a;font-size:13px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:stretch}.studio{min-width:0;background:var(--white);border-radius:23px;box-shadow:var(--shadow);overflow:hidden}.studio-head{height:62px;padding:0 23px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f0ece7}.studio-label{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800}.live-dot{height:8px;width:8px;background:#83ad8c;border-radius:50%;box-shadow:0 0 0 4px #83ad8c20}.studio-head .mini{font-size:11px;color:#a09aa0}.scene-wrap{position:relative;background:#e9e4ed;padding:0 18px;overflow:hidden}.scene-wrap:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 34%,#faf6f0 0,#f1e9e3 54%,#e6e1e9 100%);pointer-events:none}.scene-wrap canvas{position:relative;display:block;width:min(100%,670px);height:auto;aspect-ratio:1;margin:0 auto;touch-action:none;cursor:crosshair}.scene-chip{position:absolute;left:25px;top:17px;border-radius:20px;padding:9px 12px;background:#fffdf9dd;backdrop-filter:blur(8px);font-size:10px;font-weight:800;letter-spacing:.5px;color:#746c75;box-shadow:0 4px 14px #493b3510}.scene-chip span{color:#bf7f84}.canvas-hint{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);white-space:nowrap;border-radius:24px;padding:9px 14px;background:#fffdf8e8;box-shadow:0 3px 14px #46383114;color:#77717b;font-size:11px;font-weight:700;pointer-events:none}.canvas-hint b{color:#c17c83}.tool-row{min-height:74px;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}.tools{display:flex;gap:8px}.tool{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #eee8e2;border-radius:13px;background:#fffdfa;font-size:11px;font-weight:800;transition:.18s}.tool:hover{transform:translateY(-1px)}.tool.active{border-color:#d9949b;background:#fbebeb;color:#ab626d;box-shadow:0 3px 9px #dcabb024}.tool-icon{font-size:19px;line-height:1}.tool-note{font-size:10px;color:#a29ca3}.sidebar{display:flex;flex-direction:column;gap:14px}.card{background:var(--white);border-radius:20px;padding:18px 19px;box-shadow:var(--shadow)}.client-card{padding:18px 19px 16px}.card-kicker{display:flex;align-items:center;justify-content:space-between;color:#a097a0;font-size:9px;letter-spacing:1.7px;text-transform:uppercase;font-weight:800}.client-row{display:flex;align-items:center;gap:12px;margin:14px 0 15px}.avatar{height:51px;width:51px;display:grid;place-items:center;background:#f3e3da;border-radius:17px;font-size:31px}.client-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;line-height:1.1}.client-sub{font-size:10px;color:#9b949b;margin-top:4px}.quote{background:#f8f3ed;border-radius:12px;padding:12px 13px;color:#827981;font-size:11px;line-height:1.5}.quote:before{content:'“';font-family:'Playfair Display',serif;color:#d69399;font-size:20px;vertical-align:-5px;margin-right:3px}.style-card{padding-bottom:17px}.style-title{font-family:'Playfair Display',serif;font-size:18px;margin:9px 0 3px}.style-desc{font-size:10px;line-height:1.5;color:#908992;margin:0 0 14px}.target-visual{height:90px;border-radius:13px;position:relative;overflow:hidden;background:linear-gradient(145deg,#eee9f5,#f7e7e1);margin-bottom:13px}.target-visual .sun{position:absolute;width:60px;height:60px;background:#f5d6bd;border-radius:50%;right:29px;top:15px}.target-visual .head{position:absolute;left:50%;top:20px;transform:translateX(-50%);width:38px;height:47px;border-radius:48% 48% 45% 45%;background:#dfad89}.target-visual .hair-cap{position:absolute;left:50%;top:13px;transform:translateX(-50%);width:48px;height:47px;border-radius:50% 50% 25% 28%;background:#55414b}.target-visual .hair-side{position:absolute;top:31px;width:12px;height:42px;border-radius:8px;background:#55414b}.target-visual .hair-side.left{left:calc(50% - 25px)}.target-visual .hair-side.right{left:calc(50% + 13px)}.target-visual .neck{position:absolute;top:57px;left:50%;transform:translateX(-50%);width:18px;height:24px;border-radius:0 0 8px 8px;background:#dfad89}.target-label{position:absolute;left:13px;bottom:11px;font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#857783}.progress-top{display:flex;justify-content:space-between;font-size:10px;font-weight:800;color:#79737c;margin-bottom:8px}.progress-top strong{color:#c57f85}.progress{height:7px;background:#f0ece9;border-radius:9px;overflow:hidden}.progress-fill{width:0;height:100%;border-radius:9px;background:linear-gradient(90deg,#d88e98,#b19bd1);transition:width .25s}.progress-caption{display:flex;justify-content:space-between;margin-top:7px;font-size:9px;color:#aaa2a9}.action-row{display:grid;grid-template-columns:1fr 44px;gap:8px;margin-top:auto}.finish-btn,.reset-btn{height:47px;border:0;border-radius:14px;font-weight:800;transition:.2s}.finish-btn{background:#d98e96;color:white;font-size:12px;box-shadow:0 5px 13px #d98e9638}.finish-btn:hover:not(:disabled){background:#ca7882;transform:translateY(-1px)}.finish-btn:disabled{background:#e8e1de;color:#b0a8a4;box-shadow:none;cursor:not-allowed}.reset-btn{background:#fffdfa;border:1px solid #ece6e0;font-size:17px}.footer{display:flex;justify-content:space-between;margin-top:20px;color:#aaa2a5;font-size:9px;letter-spacing:.35px}.toast{position:fixed;left:50%;bottom:25px;z-index:5;transform:translate(-50%,15px);padding:12px 19px;border-radius:14px;background:#39333d;color:white;font-size:12px;font-weight:700;box-shadow:0 8px 30px #302c3460;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#29242c66;display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.open{display:flex}.modal{width:min(390px,100%);background:#fffdfa;border-radius:24px;padding:28px;text-align:center;box-shadow:0 20px 70px #31293244;animation:pop .25s ease-out}.modal-emoji{font-size:52px}.modal h2{font:700 29px 'Playfair Display',serif;margin:8px 0}.modal p{font-size:13px;line-height:1.6;color:#89818a;margin:0 auto 20px;max-width:290px}.modal button{width:100%;height:46px;border:0;border-radius:13px;background:#d98e96;color:white;font-weight:800}@keyframes pop{from{transform:translateY(12px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+@media(max-width:900px){.app{padding:16px 22px 24px}.layout{grid-template-columns:minmax(0,1fr) 285px;gap:15px}.hero h1{font-size:28px}.scene-wrap{padding:0 8px}.tool-row{padding:10px 14px}.tool{padding:8px 10px}}
+@media(max-width:700px){.app{padding:10px 12px calc(17px + env(safe-area-inset-bottom))}.topbar{height:45px;margin-bottom:15px}.brand{font-size:16px;gap:8px}.brand-mark{height:34px;width:34px;font-size:19px;border-radius:12px}.day-pill{font-size:10px;padding:8px 11px}.tip-pill{display:none}.hero{margin-bottom:13px;display:block}.hero h1{font-size:25px}.hero p{font-size:11px;margin-top:5px}.eyebrow{font-size:9px}.layout{display:flex;flex-direction:column;gap:12px}.studio{order:0;border-radius:18px}.studio-head{height:46px;padding:0 14px}.studio-label{font-size:10px}.studio-head .mini{font-size:9px}.scene-wrap{padding:0 3px}.scene-wrap canvas{width:min(100%,520px)}.scene-chip{top:9px;left:11px;padding:7px 9px;font-size:8px}.canvas-hint{bottom:8px;font-size:9px;padding:7px 10px}.tool-row{min-height:59px;padding:8px 11px}.tool{font-size:10px;padding:8px 9px;gap:5px;border-radius:11px}.tool-icon{font-size:17px}.tool-note{font-size:8px;text-align:right}.sidebar{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{border-radius:16px;padding:13px}.client-card{padding:13px}.card-kicker{font-size:8px;letter-spacing:1.1px}.client-row{gap:8px;margin:10px 0}.avatar{height:39px;width:39px;border-radius:13px;font-size:25px}.client-name{font-size:16px}.client-sub{font-size:9px}.quote{font-size:9px;padding:9px;line-height:1.4}.style-title{font-size:16px;margin:6px 0 2px}.style-desc{font-size:9px;margin-bottom:9px}.target-visual{height:69px;margin-bottom:10px}.target-visual .sun{width:46px;height:46px;right:17px;top:10px}.target-visual .head{top:14px;width:31px;height:38px}.target-visual .hair-cap{top:9px;width:39px;height:38px}.target-visual .hair-side{top:25px;width:10px;height:32px}.target-visual .hair-side.left{left:calc(50% - 20px)}.target-visual .hair-side.right{left:calc(50% + 10px)}.target-visual .neck{top:46px;width:15px;height:17px}.target-label{font-size:7px;left:9px;bottom:7px}.progress-top{font-size:9px;margin-bottom:6px}.progress-caption{font-size:8px;margin-top:5px}.action-row{grid-column:1/-1;grid-row:2;grid-template-columns:1fr 42px}.finish-btn,.reset-btn{height:42px}.footer{margin-top:12px;font-size:8px}.modal{padding:24px}}
+@media(max-width:370px){.sidebar{grid-template-columns:1fr}.client-card{display:none}.action-row{grid-column:auto}.tool-note{display:none}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="topbar"><div class="brand"><div class="brand-mark">✂️</div><div>little scissors<small>the neighborhood salon</small></div></div><div class="top-right"><div class="tip-pill">✦ &nbsp; Take it slow, make it lovely</div><div class="day-pill">SALON DAY &nbsp;<b>№ 01</b></div></div></header>
+<section class="hero"><div><div class="eyebrow">A little cut goes a long way</div><h1>Your chair is ready.</h1><p>Every client has a dream look. Let's make it happen.</p></div></section>
+<section class="layout">
+<div class="studio"><div class="studio-head"><div class="studio-label"><i class="live-dot"></i> THE STYLING CHAIR</div><div class="mini">✦ &nbsp; Drag to snip · works with touch too</div></div><div class="scene-wrap"><canvas id="scene" width="720" height="720" aria-label="Hair styling canvas. Drag across the hair to cut it." role="application"></canvas><div class="scene-chip">TODAY'S CLIENT &nbsp; <span>✦</span></div><div class="canvas-hint" id="hint"><b>✂</b> &nbsp; Hold and drag over the hair to snip</div></div><div class="tool-row"><div class="tools"><button class="tool active" id="scissorsTool" aria-pressed="true"><span class="tool-icon">✂️</span> Scissors</button><button class="tool" id="combTool" aria-pressed="false"><span class="tool-icon">🪮</span> Comb</button></div><div class="tool-note" id="toolNote">Click & drag to cut</div></div></div>
+<aside class="sidebar"><div class="card client-card"><div class="card-kicker"><span>YOUR CLIENT</span><span>✿ &nbsp; WALK-IN</span></div><div class="client-row"><div class="avatar" id="avatar">🌼</div><div><div class="client-name" id="clientName">Mina</div><div class="client-sub">First time at the salon</div></div></div><div class="quote" id="quote">Something breezy, just at my jaw. A little bit of magic, please!</div></div>
+<div class="card style-card"><div class="card-kicker"><span>THE LOOK</span><span>YOUR BRIEF</span></div><div class="style-title" id="styleTitle">The Sunday Bob</div><p class="style-desc" id="styleDesc">A soft, swingy bob that lands right at the jawline. Keep it sweet and even.</p><div class="target-visual"><div class="sun"></div><div class="neck"></div><div class="head"></div><div class="hair-cap"></div><div class="hair-side left"></div><div class="hair-side right"></div><div class="target-label" id="targetLabel">JAW-LENGTH</div></div><div class="progress-top"><span>STYLE MATCH</span><strong id="matchText">0%</strong></div><div class="progress"><div class="progress-fill" id="progressFill"></div></div><div class="progress-caption"><span>Keep trimming toward the guide</span><span id="cutCount">0 snips</span></div></div>
+<div class="action-row"><button class="finish-btn" id="finishBtn" disabled>Finish the style <span>→</span></button><button class="reset-btn" id="resetBtn" aria-label="Start this haircut over" title="Start this haircut over">↺</button></div></aside></section>
+<footer class="footer"><span>MADE WITH A LITTLE LOVE & LOTS OF HAIR</span><span>NO BAD HAIR DAYS HERE ♡</span></footer>
+</main><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="modal"><div class="modal"><div class="modal-emoji" id="modalEmoji">✨</div><h2 id="modalTitle">A lovely little look!</h2><p id="modalCopy">Mina loves her new cut.</p><button id="nextBtn">Next client &nbsp; →</button></div></div>
+<script>
+(() => {
+'use strict';
+const canvas = document.getElementById('scene'), ctx = canvas.getContext('2d');
+const W = 720, H = 720, styles = [
+ {name:'The Sunday Bob',label:'JAW-LENGTH',desc:'A soft, swingy bob that lands right at the jawline. Keep it sweet and even.',quote:'Something breezy, just at my jaw. A little bit of magic, please!',target:446,color:'#59434b'},
+ {name:'The Little Pixie',label:'CHEEK-LENGTH',desc:'A light, playful crop around the cheekbones. Short, fluffy, and full of pep.',quote:'I want to feel a little bold! A short crop would be just the thing.',target:365,color:'#59434b'},
+ {name:'The Sunday Shag',label:'SHOULDER-LENGTH',desc:'Easy, breezy layers that brush the shoulders. Keep a little length to swish.',quote:'Long enough to tuck behind my ears, with a bit of bounce!',target:510,color:'#59434b'}
+];
+const clients = [{name:'Mina',avatar:'🌼',skin:'#e8b795',top:'#819a89',hair:'#59434b'}, {name:'Nora',avatar:'🍊',skin:'#d89b79',top:'#a18ebc',hair:'#59434b'}, {name:'June',avatar:'🌷',skin:'#f0c4a4',top:'#d58e8c',hair:'#59434b'}, {name:'Lulu',avatar:'🍓',skin:'#c98e73',top:'#738eaa',hair:'#59434b'}];
+let clientIndex = 0, styleIndex = 0, client = clients[0], style = styles[0], strands = [], particles = [], dragging = false, pointer = {x:-100,y:-100}, activeTool = 'scissors', snips = 0, finished = false, lastTime=0;
+const rand = (a,b) => a + Math.random()*(b-a);
+const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+function makeStrands(){ strands=[]; for(const side of [-1,1]) for(let i=0;i<31;i++){
+ const f=i/30, rootX=360+side*(104+f*10+rand(-4,4)), rootY=228+f*133+rand(-8,8);
+ const endX=360+side*(174+f*95+rand(-8,8)), endY=592+rand(-28,25);
+ const c1x=rootX+side*(42+rand(-10,13)), c1y=rootY+rand(16,45), c2x=endX-side*rand(5,32), c2y=endY-rand(95,155);
+ strands.push({side,rootX,rootY,endX,endY,c1x,c1y,c2x,c2y,cut:1,width:rand(3,6),tone:rand(-14,14),seed:i});
+ } }
+function setup(){ client=clients[clientIndex%clients.length]; style=styles[styleIndex%styles.length]; snips=0; finished=false; particles=[];makeStrands();
+ document.getElementById('clientName').textContent=client.name;document.getElementById('avatar').textContent=client.avatar;document.getElementById('quote').textContent=style.quote;
+ document.getElementById('styleTitle').textContent=style.name;document.getElementById('styleDesc').textContent=style.desc;document.getElementById('targetLabel').textContent=style.label;
+ document.getElementById('finishBtn').disabled=true; document.getElementById('hint').innerHTML='<b>✂</b> &nbsp; Hold and drag over the hair to snip'; document.getElementById('cutCount').textContent='0 snips'; updateScore(); draw(); }
+function bez(s,t){const mt=1-t;return{x:mt**3*s.rootX+3*mt**2*t*s.c1x+3*mt*t*t*s.c2x+t**3*s.endX,y:mt**3*s.rootY+3*mt**2*t*s.c1y+3*mt*t*t*s.c2y+t**3*s.endY};}
+function trimTarget(s){for(let i=1;i<=100;i++){const t=i/100,p=bez(s,t);if(p.y>=style.target)return t;}return 1;}
+function pathTo(s,t=1){const p=bez(s,t);ctx.beginPath();ctx.moveTo(s.rootX,s.rootY);const steps=Math.max(2,Math.ceil(t*38));for(let i=1;i<=steps;i++){const q=bez(s,t*i/steps);ctx.lineTo(q.x,q.y);}return p;}
+function rounded(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+function drawBackground(){
+ ctx.fillStyle='#eee8e7';ctx.fillRect(0,0,W,H);
+ // warm salon wall and subtle paneling
+ const wall=ctx.createLinearGradient(0,0,0,550);wall.addColorStop(0,'#f4ece6');wall.addColorStop(1,'#e9dfdc');ctx.fillStyle=wall;ctx.fillRect(0,0,W,550);
+ ctx.fillStyle='#e2d8d6';ctx.fillRect(0,548,W,172);ctx.fillStyle='#d9cecf';ctx.fillRect(0,548,W,5);
+ for(let x=28;x<W;x+=116){ctx.strokeStyle='#e9dfdc';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,548);ctx.stroke();}
+ // mirror
+ ctx.save();ctx.shadowColor='#86787928';ctx.shadowBlur=15;ctx.shadowOffsetY=6;rounded(172,35,376,193,25);ctx.fillStyle='#cbbcbc';ctx.fill();rounded(180,42,360,177,20);ctx.fillStyle='#f8f0e9';ctx.fill();ctx.restore();
+ const mg=ctx.createLinearGradient(185,50,520,215);mg.addColorStop(0,'#f7ede8');mg.addColorStop(.52,'#eee8ea');mg.addColorStop(1,'#e2e2e8');rounded(184,47,352,167,17);ctx.fillStyle=mg;ctx.fill();
+ ctx.strokeStyle='#fff9f3';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(198,61);ctx.lineTo(287,61);ctx.stroke();
+ // mirror sparkle
+ ctx.fillStyle='#fffdf3';ctx.globalAlpha=.75;for(const [x,y,r] of [[493,72,5],[217,151,3],[472,165,3]]){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}ctx.globalAlpha=1;
+ // plants left
+ ctx.fillStyle='#bd9a82';ctx.beginPath();ctx.moveTo(46,484);ctx.lineTo(125,484);ctx.lineTo(113,571);ctx.quadraticCurveTo(85,583,57,571);ctx.closePath();ctx.fill();ctx.fillStyle='#d4b8a0';ctx.fillRect(49,480,73,9);
+ for(const leaf of [[69,429,-1],[94,410,1],[55,386,-1],[105,381,1],[79,366,-1],[119,432,1]]){ctx.save();ctx.translate(84,483);ctx.rotate(leaf[2]*.36);ctx.fillStyle=['#7f9a80','#93a58b','#718d78'][Math.abs(leaf[0]+leaf[1])%3];ctx.beginPath();ctx.ellipse(leaf[0]-84,leaf[1]-483,11,30,-.3,0,Math.PI*2);ctx.fill();ctx.restore();}
+ // side table and jar
+ ctx.fillStyle='#b9927d';rounded(579,453,104,14,7);ctx.fill();ctx.fillStyle='#c8a58d';ctx.fillRect(592,467,8,90);ctx.fillRect(662,467,8,90);ctx.fillStyle='#eee4dc';rounded(605,413,49,39,9);ctx.fill();ctx.fillStyle='#d2bbaa';ctx.fillRect(621,403,17,12);ctx.fillStyle='#e7c1ad';ctx.beginPath();ctx.arc(629,428,9,0,Math.PI*2);ctx.fill();
+ // floor gleam
+ ctx.globalAlpha=.22;ctx.fillStyle='#fff';ctx.fillRect(0,635,W,2);ctx.globalAlpha=1;
+}
+function drawChair(){
+ ctx.save();ctx.fillStyle='#b7787e';ctx.beginPath();ctx.ellipse(360,626,163,66,0,0,Math.PI*2);ctx.fill();rounded(231,492,258,166,80);ctx.fillStyle='#c88489';ctx.fill();
+ ctx.fillStyle='#d79a9b';ctx.beginPath();ctx.ellipse(360,547,109,66,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#bd777f';rounded(344,624,32,55,10);ctx.fill();ctx.fillStyle='#a76f71';rounded(281,674,158,17,9);ctx.fill();ctx.restore();
+}
+function drawBody(){
+ // neck behind hair
+ ctx.fillStyle=client.skin;rounded(322,415,76,108,23);ctx.fill();
+ // shoulders and smock
+ ctx.fillStyle=client.top;ctx.beginPath();ctx.moveTo(320,477);ctx.quadraticCurveTo(295,474,268,495);ctx.quadraticCurveTo(236,523,225,607);ctx.quadraticCurveTo(360,650,495,607);ctx.quadraticCurveTo(484,523,452,495);ctx.quadraticCurveTo(425,474,400,477);ctx.lineTo(385,495);ctx.quadraticCurveTo(360,516,335,495);ctx.closePath();ctx.fill();
+ // collar
+ ctx.fillStyle='#f4e3d8';ctx.beginPath();ctx.moveTo(321,480);ctx.lineTo(347,503);ctx.lineTo(360,490);ctx.lineTo(375,503);ctx.lineTo(400,480);ctx.lineTo(385,466);ctx.quadraticCurveTo(360,479,335,466);ctx.closePath();ctx.fill();
+ // tiny smock button
+ ctx.fillStyle='#ead4c8';ctx.beginPath();ctx.arc(360,535,3.3,0,Math.PI*2);ctx.fill();
+}
+function drawHead(){
+ // ears
+ ctx.fillStyle=client.skin;ctx.beginPath();ctx.ellipse(252,347,22,34,-.1,0,Math.PI*2);ctx.ellipse(468,347,22,34,.1,0,Math.PI*2);ctx.fill();
+ // face
+ ctx.fillStyle=client.skin;ctx.beginPath();ctx.moveTo(263,269);ctx.quadraticCurveTo(263,222,360,218);ctx.quadraticCurveTo(457,222,457,269);ctx.lineTo(448,390);ctx.quadraticCurveTo(441,455,360,470);ctx.quadraticCurveTo(279,455,272,390);ctx.closePath();ctx.fill();
+ // face light
+ ctx.globalAlpha=.1;ctx.fillStyle='#fff8e9';ctx.beginPath();ctx.ellipse(327,322,37,62,-.25,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;
+ // brows
+ ctx.strokeStyle='#79594f';ctx.lineWidth=4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(300,326);ctx.quadraticCurveTo(316,316,331,325);ctx.moveTo(389,325);ctx.quadraticCurveTo(405,316,420,326);ctx.stroke();
+ // eyes
+ ctx.fillStyle='#423b42';ctx.beginPath();ctx.ellipse(316,345,5,7,0,0,Math.PI*2);ctx.ellipse(404,345,5,7,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#fff6e8';ctx.beginPath();ctx.arc(318,343,1.5,0,Math.PI*2);ctx.arc(406,343,1.5,0,Math.PI*2);ctx.fill();
+ // blush
+ ctx.globalAlpha=.25;ctx.fillStyle='#de777c';ctx.beginPath();ctx.ellipse(294,372,16,8,0,0,Math.PI*2);ctx.ellipse(426,372,16,8,0,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;
+ // nose and smile
+ ctx.strokeStyle='#bf836f';ctx.lineWidth=2.2;ctx.beginPath();ctx.moveTo(360,352);ctx.quadraticCurveTo(351,377,361,378);ctx.stroke();ctx.strokeStyle='#a65f62';ctx.lineWidth=2.6;ctx.beginPath();ctx.moveTo(346,398);ctx.quadraticCurveTo(360,410,375,398);ctx.stroke();
+ // earrings
+ ctx.fillStyle='#e6bd77';for(const x of [252,468]){ctx.beginPath();ctx.arc(x,375,4,0,Math.PI*2);ctx.fill();}
+}
+function hairColor(tone){return tone< -6?'#40313b':tone>7?'#72555b':'#59434b';}
+function drawHairMass(){
+ ctx.fillStyle=client.hair;
+ const ends=strands.map(s=>bez(s,s.cut).y), baseY=ends.length?ends.reduce((a,b)=>a+b,0)/ends.length:592;
+ // Back curtain follows the trimmed ends so a haircut changes the silhouette too.
+ ctx.beginPath();ctx.moveTo(360,190);ctx.bezierCurveTo(252,176,219,239,218,337);ctx.bezierCurveTo(207,430,208,baseY-55,231,baseY);ctx.quadraticCurveTo(252,baseY+20,280,baseY-8);ctx.lineTo(284,346);ctx.lineTo(305,245);ctx.closePath();ctx.fill();
+ ctx.beginPath();ctx.moveTo(360,190);ctx.bezierCurveTo(468,176,501,239,502,337);ctx.bezierCurveTo(513,430,512,baseY-55,489,baseY);ctx.quadraticCurveTo(468,baseY+20,440,baseY-8);ctx.lineTo(436,346);ctx.lineTo(415,245);ctx.closePath();ctx.fill();
+ // warm, broad ribbons in the dark hair
+ ctx.save();ctx.globalAlpha=.16;ctx.strokeStyle='#d9a288';ctx.lineWidth=7;ctx.lineCap='round';
+ for(const side of [-1,1])for(let i=0;i<4;i++){const x=360+side*(244+i*8);ctx.beginPath();ctx.moveTo(360+side*35,214+i*15);ctx.bezierCurveTo(360+side*138,228+i*13,x,350+i*20,x+side*3,527+i*13);ctx.stroke();}ctx.restore();
+}
+function drawCap(){
+ ctx.fillStyle=client.hair;ctx.beginPath();ctx.moveTo(253,322);ctx.quadraticCurveTo(224,243,272,199);ctx.quadraticCurveTo(305,170,359,180);ctx.quadraticCurveTo(421,169,452,213);ctx.quadraticCurveTo(482,251,465,323);ctx.quadraticCurveTo(440,291,425,261);ctx.quadraticCurveTo(401,291,376,280);ctx.quadraticCurveTo(354,310,333,281);ctx.quadraticCurveTo(304,309,285,282);ctx.closePath();ctx.fill();
+ // soft shine on crown
+ ctx.save();ctx.globalAlpha=.22;ctx.strokeStyle='#d9a288';ctx.lineWidth=5;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(287,232);ctx.quadraticCurveTo(315,195,350,196);ctx.stroke();ctx.restore();
+}
+function drawHair(){
+ // The guide is a quiet dotted line so the requested length stays visible.
+ ctx.save();ctx.setLineDash([5,8]);ctx.strokeStyle='#fff9edb5';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(214,style.target);ctx.lineTo(506,style.target);ctx.stroke();ctx.restore();
+ for(const s of strands){const p=pathTo(s,s.cut);ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=hairColor(s.tone);ctx.lineWidth=s.width;ctx.stroke();
+  // fine strand glint
+  if(s.seed%3===0){ctx.globalAlpha=.32;ctx.strokeStyle='#e3b39a';ctx.lineWidth=1.15;pathTo(s,s.cut);ctx.stroke();ctx.globalAlpha=1;}
+  if(s.cut<.985){ctx.fillStyle='#bd856c';ctx.beginPath();ctx.arc(p.x,p.y,Math.max(1.7,s.width*.42),0,Math.PI*2);ctx.fill();}
+ }
+ drawCap();
+ // Curved front fringe sits over the forehead, always out of the trimming brief.
+ ctx.fillStyle=client.hair;ctx.beginPath();ctx.moveTo(261,278);ctx.quadraticCurveTo(267,208,333,201);ctx.quadraticCurveTo(367,195,389,220);ctx.quadraticCurveTo(380,252,352,272);ctx.quadraticCurveTo(331,254,315,279);ctx.quadraticCurveTo(292,259,276,292);ctx.closePath();ctx.fill();
+ ctx.globalAlpha=.25;ctx.strokeStyle='#dfae96';ctx.lineWidth=3;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(282,239);ctx.quadraticCurveTo(302,216,325,216);ctx.stroke();ctx.globalAlpha=1;
+}
+function drawParticles(dt){
+ for(const p of particles){p.vy+=dt*.00045;p.x+=p.vx*dt*.05;p.y+=p.vy*dt*.05;p.life-=dt*.00065;ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.strokeStyle=p.color;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x+p.vx*2,p.y+p.vy*2);ctx.stroke();ctx.restore();}
+ particles=particles.filter(p=>p.life>0);
+}
+function drawTool(){if(pointer.x<0||pointer.y<0||finished)return;ctx.save();ctx.translate(pointer.x,pointer.y);ctx.rotate(-.5);ctx.font='27px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(activeTool==='scissors'?'✂️':'🪮',0,0);ctx.restore();}
+function draw(dt=16){ctx.clearRect(0,0,W,H);drawBackground();drawChair();drawHairMass();drawBody();drawHead();drawHair();drawParticles(dt);drawTool();}
+function targetT(s){return trimTarget(s);}
+function updateScore(){let sum=0,within=0;for(const s of strands){const p=bez(s,s.cut),diff=Math.abs(p.y-style.target);sum+=Math.max(0,1-diff/115);if(diff<43)within++;}const score=Math.round(sum/strands.length*100);document.getElementById('matchText').textContent=score+'%';document.getElementById('progressFill').style.width=score+'%';document.getElementById('cutCount').textContent=snips+' '+(snips===1?'snip':'snips');const ready=score>=77&&within>=strands.length*.72&&!finished;document.getElementById('finishBtn').disabled=!ready; if(ready)document.getElementById('hint').innerHTML='<b>✦</b> &nbsp; Lovely! Your look is ready to finish';else if(snips>0)document.getElementById('hint').innerHTML='<b>✂</b> &nbsp; Keep trimming toward the dotted guide';}
+function pointerPosition(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height};}
+function cutAt(x,y){let changed=false;for(const s of strands){if(s.cut<.14)continue;const goalT=targetT(s),goal=bez(s,goalT);if(s.cut<=goalT+.012)continue;let bestT=0;if(Math.hypot(goal.x-x,goal.y-y)<52)bestT=goalT;else{let dist=25;for(let i=6;i<=Math.floor(s.cut*100);i+=2){const t=i/100,p=bez(s,t),d=Math.hypot(p.x-x,p.y-y);if(d<dist){dist=d;bestT=t;}}if(bestT){const candidate=bez(s,Math.max(bestT,goalT));bestT=candidate.y>=style.target?Math.max(bestT,goalT):0;}}if(bestT&&bestT<s.cut-.012){const p=bez(s,bestT);s.cut=clamp(bestT,.12,s.cut);snips++;changed=true;particles.push({x:p.x,y:p.y,vx:rand(-1.7,1.7),vy:rand(-2.2,-.5),life:1,color:['#e6c6a9','#a98072','#f5e1c4'][snips%3]});}}if(changed)updateScore();return changed;}
+function handleDown(e){if(finished)return;e.preventDefault();canvas.setPointerCapture(e.pointerId);pointer=pointerPosition(e);if(activeTool==='scissors'){dragging=true;if(cutAt(pointer.x,pointer.y))draw();}else{document.getElementById('hint').innerHTML='<b>🪮</b> &nbsp; Comb and line up the ends with the dotted guide';draw();}}
+function handleMove(e){pointer=pointerPosition(e);if(dragging&&activeTool==='scissors'){cutAt(pointer.x,pointer.y);}draw();}
+function handleUp(){dragging=false;}
+canvas.addEventListener('pointerdown',handleDown);canvas.addEventListener('pointermove',handleMove);canvas.addEventListener('pointerup',handleUp);canvas.addEventListener('pointercancel',handleUp);canvas.addEventListener('pointerleave',()=>{if(!dragging){pointer={x:-100,y:-100};draw();}});
+function setTool(tool){activeTool=tool;const scissors=tool==='scissors';document.getElementById('scissorsTool').classList.toggle('active',scissors);document.getElementById('combTool').classList.toggle('active',!scissors);document.getElementById('scissorsTool').setAttribute('aria-pressed',String(scissors));document.getElementById('combTool').setAttribute('aria-pressed',String(!scissors));document.getElementById('toolNote').textContent=scissors?'Click & drag to cut':'Comb to check the length guide';canvas.style.cursor=scissors?'crosshair':'grab';document.getElementById('hint').innerHTML=scissors?'<b>✂</b> &nbsp; Hold and drag over the hair to snip':'<b>🪮</b> &nbsp; Comb and line up the ends with the dotted guide';draw();}
+document.getElementById('scissorsTool').addEventListener('click',()=>setTool('scissors'));document.getElementById('combTool').addEventListener('click',()=>setTool('comb'));
+let toastTimer;
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2100);}
+document.getElementById('resetBtn').addEventListener('click',()=>{setup();toast('Fresh start! Your client is ready.');});
+document.getElementById('finishBtn').addEventListener('click',()=>{if(document.getElementById('finishBtn').disabled)return;finished=true;draw();const score=Number(document.getElementById('matchText').textContent.replace('%',''));document.getElementById('modalEmoji').textContent=score>92?'🌟':'✨';document.getElementById('modalTitle').textContent=score>92?'A perfect little look!':'A lovely little look!';document.getElementById('modalCopy').textContent=`${client.name} loves the new ${style.name.toLowerCase()}. You made their day — and earned ${score}% style match!`;document.getElementById('nextBtn').textContent=clientIndex%clients.length===clients.length-1?'One more client  →':'Next client  →';document.getElementById('modal').classList.add('open');});
+document.getElementById('nextBtn').addEventListener('click',()=>{document.getElementById('modal').classList.remove('open');clientIndex++;styleIndex++;setup();setTool('scissors');});
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal'){e.currentTarget.classList.remove('open');}});
+function animate(now){const dt=Math.min(40,now-(lastTime||now));lastTime=now;if(particles.length)draw(dt);requestAnimationFrame(animate);}setup();requestAnimationFrame(animate);
+})();
+</script></body></html>
