@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f3ed" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d27c69'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='42' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
+  <title>Strand Studio — Hair Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Strand Studio home"><span class="brand-mark">S<span>✦</span></span><span>strand<span class="brand-light">studio</span></span></a>
+      <div class="top-center"><span class="live-dot"></span> HAIR LAB <span class="top-separator">/</span> <span class="top-muted">SESSION 01</span></div>
+      <div class="top-actions"><button class="icon-button" id="soundToggle" title="Toggle sound" aria-label="Toggle sound">♫</button><button class="help-button" id="helpBtn">HOW TO PLAY <span>↗</span></button></div>
+    </header>
+
+    <div class="workspace">
+      <section class="stage-column">
+        <div class="stage-heading"><div><div class="eyebrow">YOUR CLIENT · MAYA</div><h1>The shape is yours.</h1></div><div class="stage-heading-right"><span class="session-pill"><span class="live-dot"></span> LIVE SESSION</span><button class="reset-button" id="resetBtn" title="Restore the original style">↻ <span>Reset</span></button></div></div>
+        <div class="stage-frame">
+          <div class="stage-topline"><span><i class="tiny-star">✦</i> CUTTING STATION</span><span id="windLabel">BREEZE <b>OFF</b></span></div>
+          <div id="viewport" class="viewport" aria-label="Interactive 3D hairstyling view">
+            <div class="loading-card" id="loading"><span class="loading-spinner"></span><span>Preparing the chair...</span></div>
+            <div class="scene-tag"><span class="tag-avatar">M</span><span><b>Maya Chen</b><small>Natural · chestnut</small></span></div>
+            <div class="scene-hint" id="sceneHint"><span>✦</span> Drag a tool through the hair to get started</div>
+            <div class="crosshair" id="crosshair"></div>
+            <div class="cut-toast" id="cutToast">SNIP!</div>
+          </div>
+          <div class="stage-footer"><span><kbd>DRAG</kbd> to work · <kbd>SCROLL</kbd> to zoom · <kbd>RIGHT-DRAG</kbd> to orbit</span><button id="windBtn" class="wind-button"><span>〰</span> Add a breeze <i>OFF</i></button></div>
+        </div>
+        <div class="bottom-stats">
+          <div class="stat-card"><span class="stat-icon coral">✂</span><span class="stat-copy"><small>HAIR REMOVED</small><b id="hairRemoved">0.0 <em>cm</em></b></span></div>
+          <div class="stat-card"><span class="stat-icon sage">⌁</span><span class="stat-copy"><small>STRANDS CUT</small><b id="strandsCut">0 <em>/ 480</em></b></span></div>
+          <div class="stat-card goal-card"><span class="stat-icon gold">✦</span><span class="stat-copy"><small>YOUR CHALLENGE</small><b id="goalText">Shape a soft, even bob</b></span><span id="goalStatus" class="goal-status">IN PROGRESS</span></div>
+        </div>
+      </section>
+
+      <aside class="tool-panel">
+        <div class="panel-title"><div><div class="eyebrow">THE TOOLKIT</div><h2>Choose your tool</h2></div><span class="tool-count">04</span></div>
+        <div class="tool-list" role="group" aria-label="Select a styling tool">
+          <button class="tool-card selected" data-tool="scissors"><span class="tool-illustration scissors-illustration"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="13" cy="40" r="7"/><circle cx="13" cy="16" r="7"/><path d="M18 20 44 43M18 36 44 13M44 13l-3 15M44 43l-3-15"/></svg></span><span class="tool-info"><b>Precision scissors</b><small>Clean, exact cuts</small></span><span class="tool-key">1</span></button>
+          <button class="tool-card" data-tool="thinning"><span class="tool-illustration thinning-illustration"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="13" cy="40" r="7"/><circle cx="13" cy="16" r="7"/><path d="M18 20 44 43M18 36 44 13M40 11l8 3-4 9M40 45l8-3-4-9"/></svg></span><span class="tool-info"><b>Thinning shears</b><small>Lighten &amp; add texture</small></span><span class="tool-key">2</span></button>
+          <button class="tool-card" data-tool="clippers"><span class="tool-illustration clipper-illustration"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M18 17h21v6H18zM21 23h15v23H21zM24 28h9M24 33h9M24 38h9M23 17V9m5 8V8m5 9V9m5 8v-6"/></svg></span><span class="tool-info"><b>Quiet clippers</b><small>Swipe to take length off</small></span><span class="tool-key">3</span></button>
+          <button class="tool-card" data-tool="comb"><span class="tool-illustration comb-illustration"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M10 19h36v10H10zM15 29v15m7-15v15m7-15v15m7-15v15m7-15v15"/></svg></span><span class="tool-info"><b>Wide-tooth comb</b><small>Detangle &amp; guide strands</small></span><span class="tool-key">4</span></button>
+        </div>
+        <div class="tool-detail" id="toolDetail"><span class="detail-icon">✂</span><span><b>Tap or drag to snip</b><small>Scissors close on every pass.</small></span></div>
+        <div class="divider"></div>
+        <div class="section-label"><span>STYLE GOAL</span><span class="goal-count" id="goalProgress">0 / 18</span></div>
+        <div class="progress-track"><span id="progressFill"></span></div>
+        <p class="goal-note">Trim the long layers toward shoulder length. A little from each side creates a balanced, lived-in bob.</p>
+        <div class="mini-guide"><div class="guide-icon">✧</div><div><b>Try a gentle breeze</b><small>Turn it on to see the hair respond to airflow.</small></div><button id="miniWind" aria-label="Toggle breeze">↗</button></div>
+        <div class="panel-bottom"><span class="saved-dot"></span> Progress is saved for this session</div>
+      </aside>
+    </div>
+    <footer class="page-footer"><span>STRAND STUDIO <i>·</i> A LITTLE ROOM TO CREATE</span><span>MADE FOR THE LOVE OF GOOD HAIR <b>♡</b></span></footer>
+  </main>
+
+  <div class="modal-backdrop" id="helpModal" aria-hidden="true"><section class="help-modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><button class="modal-close" id="closeHelp" aria-label="Close">×</button><div class="eyebrow">A QUICK HELLO</div><h2 id="helpTitle">Make it your own.</h2><p>Choose a tool, then work directly on Maya's hair. Every strand has its own little bit of weight and movement, so take your time and find the shape you like.</p><div class="help-steps"><div><span>01</span><b>Pick a tool</b><small>Use the toolkit or number keys 1–4.</small></div><div><span>02</span><b>Work the hair</b><small>Drag scissors or clippers across the ends. Comb to loosen and guide.</small></div><div><span>03</span><b>Find your angle</b><small>Right-drag to orbit, scroll to zoom, and add a breeze to test the movement.</small></div></div><button class="modal-done" id="gotIt">LET'S GET STYLING <span>→</span></button></section></div>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
