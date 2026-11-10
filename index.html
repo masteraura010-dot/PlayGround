@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101114" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23101114' stroke='%23d8b889'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='serif' font-style='italic' font-size='21' fill='%23d8b889'%3Ev%3C/text%3E%3C/svg%3E" />
+  <title>Velvet — Hair Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Velvet hair studio home"><span class="brand-mark">v</span><span>velvet<span class="brand-light"> studio</span></span></a>
+      <div class="session-pill"><span class="live-dot"></span> CLIENT SESSION <b>01</b></div>
+      <button id="resetBtn" class="quiet-btn" title="Start this haircut over"><span class="reset-icon">↺</span><span>Reset</span></button>
+    </header>
+
+    <section class="workspace">
+      <aside class="left-rail">
+        <div class="rail-heading"><span class="eyebrow">TODAY'S LOOK</span><span class="step-count">01 <i>/ 03</i></span></div>
+        <div class="look-card">
+          <div class="look-swatch"><div class="swatch-hair"></div><span class="sparkle">✦</span></div>
+          <div class="look-title">The soft bob</div>
+          <div class="look-subtitle">A little shape. A lot of movement.</div>
+          <div class="look-rule"></div>
+          <div class="goal-row"><span>Length goal</span><strong>Jawline</strong></div>
+          <div class="goal-meter"><i id="goalMeter"></i></div>
+          <div class="goal-caption"><span>Shoulder length</span><span id="progressText">0% shaped</span></div>
+        </div>
+        <div class="coach-note"><span class="note-icon">✳</span><div><b>Stylist note</b><p>Work in small sections. Keep the ends soft and just a touch longer at the front.</p></div></div>
+        <div class="quality-card"><div class="quality-top"><span>FINISH QUALITY</span><span id="qualityValue">—</span></div><div class="quality-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p id="qualityCaption">Your first snip sets the tone.</p></div>
+        <div class="rail-foot"><span class="tiny-star">✦</span> Take your time. Good hair isn't rushed.</div>
+      </aside>
+
+      <section class="stage-column">
+        <div class="stage-topline"><div><span class="eyebrow">THE STYLING CHAIR</span><span class="stage-sub">Drag to orbit <span class="keycap">↔</span> · Scroll to zoom</span></div><div class="scene-status"><span class="live-dot"></span> LIVE SIMULATION</div></div>
+        <div id="stage" class="stage">
+          <canvas id="scene" aria-label="Interactive 3D hair styling scene"></canvas>
+          <div class="stage-vignette"></div>
+          <div class="headset-badge"><span>✦</span> REAL-TIME STRANDS</div>
+          <div class="wind-status" id="windStatus"><span class="wind-glyph">〰</span> BREEZE ON</div>
+          <div class="stage-bottom-left"><span class="mouse-hint"><i>⌖</i> Click hair to cut</span></div>
+          <div class="stage-bottom-right"><button id="windBtn" class="wind-btn" aria-label="Toggle breeze"><span>〰</span><span>Breeze</span><b id="windToggle">ON</b></button></div>
+          <div id="cutFlash" class="cut-flash">✦ <span>Nice cut!</span></div>
+          <div id="cursorTool" class="cursor-tool" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M26 31 12 13a6 6 0 1 0-5 5l19 14m12 1 14 19a6 6 0 1 0 5-5L38 30M19 48a7 7 0 1 1-14 0 7 7 0 0 1 14 0Zm40-32a7 7 0 1 1-14 0 7 7 0 0 1 14 0ZM24 35l17-9m-17 3 17 10"/></svg></div>
+          <div id="toast" class="toast" role="status"></div>
+        </div>
+        <div class="stage-footer"><div class="client-info"><div class="avatar">M</div><div><b>Mara</b><span>First-time client <i>·</i> Fine, wavy hair</span></div></div><div class="footer-tip"><span>✦</span> <span id="tipText">Select a tool, then shape the silhouette.</span></div><button id="finishBtn" class="finish-btn">Finish look <span>↗</span></button></div>
+      </section>
+
+      <aside class="tool-panel">
+        <div class="tools-header"><span class="eyebrow">YOUR TOOLKIT</span><span class="tool-count">04 TOOLS</span></div>
+        <div class="tool-list" role="toolbar" aria-label="Styling tools">
+          <button class="tool-card selected" data-tool="scissors" aria-pressed="true"><span class="tool-icon scissors-icon"><svg viewBox="0 0 40 40"><circle cx="10" cy="29" r="5.1"/><circle cx="10" cy="11" r="5.1"/><path d="m14 14 20 18M14 26 34 8M18 20l5 1"/></svg></span><span class="tool-copy"><b>Precision shears</b><small>Clean, exact cuts</small></span><span class="tool-key">1</span></button>
+          <button class="tool-card" data-tool="thinning" aria-pressed="false"><span class="tool-icon thinning-icon"><svg viewBox="0 0 40 40"><circle cx="10" cy="29" r="5.1"/><circle cx="10" cy="11" r="5.1"/><path d="m14 14 20 18M14 26 34 8M19 20l2 1m2-5 2 2m1 9 2 2m2-9 2 2"/></svg></span><span class="tool-copy"><b>Thinning shears</b><small>Soft, airy texture</small></span><span class="tool-key">2</span></button>
+          <button class="tool-card" data-tool="clippers" aria-pressed="false"><span class="tool-icon clipper-icon"><svg viewBox="0 0 40 40"><path d="M12 5h16v6H12zM15 11h10v22H15zM12 33h16v3H12zM17 7v3m4-3v3m4-3v3"/><path d="M18 18v10m4-10v10"/></svg></span><span class="tool-copy"><b>Clippers</b><small>Fast, bold shaping</small></span><span class="tool-key">3</span></button>
+          <button class="tool-card" data-tool="comb" aria-pressed="false"><span class="tool-icon comb-icon"><svg viewBox="0 0 40 40"><path d="M7 12h26v8H7zM10 20v13m5-13v13m5-13v13m5-13v13m5-13v13"/></svg></span><span class="tool-copy"><b>Styling comb</b><small>Guide &amp; smooth</small></span><span class="tool-key">4</span></button>
+        </div>
+        <div class="tool-hint"><span class="hint-spark">✦</span><span id="toolHint">Tap or drag across the hair to snip a section.</span></div>
+        <div class="divider"></div>
+        <div class="view-heading"><span class="eyebrow">VIEW ANGLE</span><span class="angle-label" id="angleLabel">FRONT</span></div>
+        <div class="angle-controls"><button data-angle="front" class="angle-btn active" title="Front view"><span class="angle-front">◉</span></button><button data-angle="side" class="angle-btn" title="Side view"><span class="angle-side">◒</span></button><button data-angle="back" class="angle-btn" title="Back view"><span class="angle-back">◉</span></button></div>
+        <div class="safety-note"><span class="safety-icon">✧</span><span>Every strand has a mind of its own. Watch them move.</span></div>
+        <div class="sound-row"><span class="sound-icon">♫</span><div><b>Studio sounds</b><small>Soft, satisfying snips</small></div><button id="soundBtn" class="sound-toggle on" aria-label="Toggle sound"><i></i></button></div>
+      </aside>
+    </section>
+    <footer class="bottomline"><span>VELVET STUDIO <i>©</i> 2025</span><span>CRAFTED WITH CARE <b>✦</b></span><span>SESSION SAVED AUTOMATICALLY <i>·</i></span></footer>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
